@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Paycheck Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <meta name="description" content="Employee Payslip Management System">
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+         h1 {
+    margin-bottom: 0px; 
+    }
+    a{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    }
+    p {
+    margin-top: 0;
+    }
+
+    .navbar{
+        display:flex;
+        justify-content: space-between;
+        background-color:rgba(255, 255, 255, 0.8);
+        color: black;
+        margin: 5px;
+        width:100%;
+        transition: color 0.3s ease;
+        text-decoration: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        position: fixed;
+    }
+    .nav-elements{
+        display:flex;
+        padding: 20px;
+    }
+    .nav-elements nav{
+        justify-content: space-around;
+        margin-left:60px;
+    }
+    .name{
+        display:flex;
+        margin:10px;
+    }
+    .name nav{
+        margin-left: 10px;
+    }
+    nav input{
+        border: none;
+        background-color: transparent;
+    }
+    .in{
+    border-style: solid;
+        border-radius: 40px;
+        height: 40px;
+        width: 225px;
+        
+    }
+    nav i{
+        margin-top:10px;
+        margin-left:20px;
+    }
+    .a i{
+        font-size: 20px;
+    }
+
+    input:focus{
+    outline: none;
+    }
+    nav i:hover{
+        cursor: pointer;
+    }
+    #b{
+        padding: 5px;
+    }
+    #side-bar{
+        width:270px;
+        display:flex;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        flex-direction: column;
+        margin:5px;
+        margin-top: 80px;
+        padding:10px;
+        height:650px;
+        justify-content: space-around;
+        position:fixed
+    }
+    #side-bar ul i{
+        margin-left:5px;
+        margin-right:20px;
+    }
+    #side-bar ul{
+        padding: 10px;
+    }
+    #side-bar p{
+        display:inline-block;
+    }
+    #side-bar ul:hover{
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.2); 
+    }
+    .mess h1{
+        display:inline-block;
+    }
+    .left{
+
+        margin-left:270px;
+        padding-left:20px;
+        padding-top: 20px;
+        width:1250px;
+    }
+    #option{
+        padding: 10px;
+        margin:10px;
+        display: none;
+    }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            min-height: 100vh;
+            padding: 1rem;
+            margin-top :80px ;
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        .max-w-7xl {
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #6b7280;
+            font-size: 1.125rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1280px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin: 10px;
+            margin-bottom: 2rem;
+            width: 1000px;
+            padding: 50px;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #374151;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            color: #1f2937;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #f3f4f6;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-align: center;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        .status-pending {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        .status-issued {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .status-completed {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-lg {
+            padding: 0.75rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .action-btn {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin: 0 0.25rem;
+        }
+
+        .action-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .close-btn:hover {
+            color: #374151;
+        }
+
+        .modal-body {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .modal-body i {
+            font-size: 4rem;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .toast {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #10b981;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            background: #dc2626;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <body class="abc">
+    <div class="navbar">
+        <div id="option">
+            <i class="fa-solid fa-bars" onclick=menu()></i>
+        </div>
+        <div class="name">
+            <img src="../epical.png" heigh="30" width="50px">
+            <nav>
+                <h1>Epical Layout</h1>
+                <p>Employee Portal</p>
+            </nav>
+        </div>
+        <div class="nav-elements">
+            <nav class="in">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </nav>
+            <nav class="a" id="a">
+                <i class="fas fa-bell" height:70px></i>
+            </nav>
+            <nav class="a" id="b">
+                <i class="bi bi-moon-fill" onclick=dark()></i>
+            </nav>
+            <nav class="a" id="c">
+                <i class="fas fa-user-circle" id="user-icon"></i>
+            </nav>
+        </div>
+    </div>
+    <div id="side-bar">
+        <a href="../emp-Dashboard/dashboard.html"><ul>
+            <i class="fa-solid fa-house"></i><p>Dashboard</p>
+        </ul></a>
+        <a href="../timesheet-emp/time-emp.html"><ul>
+            <i class="fa-regular fa-clock"></i><p>Timesheet</p>
+        </ul></a>
+         <a href="../leavemanagement-emp/leave.html"><ul>
+           <i class="fa-regular fa-calendar"></i><p>Leave Management</p>
+        </ul></a>
+        <a href="../leavemanagement-emp/leave.html"><ul>
+           <i class="fa-regular fa-file"></i><p>Documents</p>
+        </ul></a>
+        <a href="../profile/profile.html"><ul>
+            <i class="fa-regular fa-user"></i><p>Profile</p>
+        </ul></a>
+        <p>Quick-Actions</p>
+        <a href="#"><ul>
+            <i class="fa-solid fa-plus"></i><p>New Request</p>
+        </ul></a>
+        <a href="#"><ul>
+            <i class="fa-solid fa-download"></i><p>Download Payslip</p>
+        </ul></a>
+        <a href="#"><ul>
+            <i class="fa-solid fa-upload"></i><p>Upload Documents</p>
+        </ul>
+    </div>
+    <div class="left">
+    <div class="container">
+        <div class="max-w-7xl">
+            <header>
+                <h1>Employee Paycheck Hub</h1>
+                <p>Manage employee payslip requests and uploads efficiently</p>
+            </header>
+
+            <div class="grid">
+                <!-- Left Column -->
+                <div>
+                    <!-- Employee Payslip Requests Table -->
+                    <div class="card">
+                        <h2>Employee Payslip Requests</h2>
+                        <div class="table-container">
+                            <table id="requestsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Requested Period</th>
+                                        <th>Request Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="requestsBody">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                            <div id="noRequests" class="empty-state" style="display: none;">
+                                No pending requests
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payslip Upload Section -->
+                    <div class="card" id="upload-section">
+                        <h2>Upload Payslip for Employee</h2>
+                        <form id="uploadForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="employeeSelect">Select Employee <span class="required">*</span></label>
+                                    <select id="employeeSelect" required>
+                                        <option value="">Choose Employee</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="monthSelect">Select Month <span class="required">*</span></label>
+                                    <select id="monthSelect" required>
+                                        <option value="">Choose Month</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="yearSelect">Select Year <span class="required">*</span></label>
+                                    <select id="yearSelect" required>
+                                        <option value="">Choose Year</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="amountInput">Enter Amount (Optional)</label>
+                                    <input type="text" id="amountInput" placeholder="$0.00">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fileInput">Choose File (PDF) <span class="required">*</span></label>
+                                <input type="file" id="fileInput" accept=".pdf" required>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-lg">Upload Payslip</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Right Column -->
+                <div>
+                    <!-- Payslip Upload History Table -->
+                    <div class="card">
+                        <h2>Payslip Upload History</h2>
+                        <div class="table-container">
+                            <table id="historyTable">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Period</th>
+                                        <th>Amount</th>
+                                        <th>Upload Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyBody">
+                                    <!-- Populated by JavaScript -->
+                                </tbody>
+                            </table>
+                            <div id="noHistory" class="empty-state" style="display: none;">
+                                No uploads yet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Payslip Preview</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <i class="fas fa-file-pdf"></i>
+                <p id="modalContent">Preview content</p>
+                <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem;">PDF preview would be displayed here</p>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data structures
+        const employees = [
+            { id: 'E001', name: 'John Smith' },
+            { id: 'E002', name: 'Sarah Johnson' },
+            { id: 'E003', name: 'Michael Brown' },
+            { id: 'E004', name: 'Emily Davis' },
+            { id: 'E005', name: 'David Wilson' }
+        ];
+
+        const months = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        const years = ['2024', '2023', '2022', '2021', '2020'];
+
+        // Sample data
+        const sampleRequests = [
+            {
+                id: 'R001',
+                employeeId: 'E001',
+                employeeName: 'John Smith',
+                requestedPeriod: 'December-2024',
+                requestDate: '2024-12-01',
+                status: 'Pending'
+            },
+            {
+                id: 'R002',
+                employeeId: 'E002',
+                employeeName: 'Sarah Johnson',
+                requestedPeriod: 'November-2024',
+                requestDate: '2024-11-28',
+                status: 'Pending'
+            },
+            {
+                id: 'R003',
+                employeeId: 'E003',
+                employeeName: 'Michael Brown',
+                requestedPeriod: 'December-2024',
+                requestDate: '2024-12-02',
+                status: 'Pending'
+            }
+        ];
+
+        const sampleUploads = [
+            {
+                id: 'U001',
+                employeeId: 'E004',
+                employeeName: 'Emily Davis',
+                period: 'November-2024',
+                amount: '$4,500.00',
+                uploadDate: '2024-11-30',
+                status: 'Issued',
+                fileName: 'payslip_E004_Nov2024.pdf'
+            },
+            {
+                id: 'U002',
+                employeeId: 'E005',
+                employeeName: 'David Wilson',
+                period: 'October-2024',
+                amount: '$3,800.00',
+                uploadDate: '2024-10-31',
+                status: 'Issued',
+                fileName: 'payslip_E005_Oct2024.pdf'
+            }
+        ];
+
+        // Application state
+        let requests = [];
+        let uploads = [];
+
+        // Initialize application
+        function init() {
+            loadData();
+            populateDropdowns();
+            renderTables();
+            setupEventListeners();
+        }
+
+        // Load data from localStorage or use sample data
+        function loadData() {
+            const savedRequests = localStorage.getItem('payslipRequests');
+            const savedUploads = localStorage.getItem('payslipUploads');
+
+            if (savedRequests) {
+                requests = JSON.parse(savedRequests);
+            } else {
+                requests = [...sampleRequests];
+                localStorage.setItem('payslipRequests', JSON.stringify(requests));
+            }
+
+            if (savedUploads) {
+                uploads = JSON.parse(savedUploads);
+            } else {
+                uploads = [...sampleUploads];
+                localStorage.setItem('payslipUploads', JSON.stringify(uploads));
+            }
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('payslipRequests', JSON.stringify(requests));
+            localStorage.setItem('payslipUploads', JSON.stringify(uploads));
+        }
+
+        // Populate dropdown menus
+        function populateDropdowns() {
+            const employeeSelect = document.getElementById('employeeSelect');
+            const monthSelect = document.getElementById('monthSelect');
+            const yearSelect = document.getElementById('yearSelect');
+
+            // Populate employees
+            employees.forEach(employee => {
+                const option = document.createElement('option');
+                option.value = employee.id;
+                option.textContent = `${employee.id} - ${employee.name}`;
+                employeeSelect.appendChild(option);
+            });
+
+            // Populate months
+            months.forEach(month => {
+                const option = document.createElement('option');
+                option.value = month;
+                option.textContent = month;
+                monthSelect.appendChild(option);
+            });
+
+            // Populate years
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+            });
+        }
+
+        // Render tables
+        function renderTables() {
+            renderRequestsTable();
+            renderHistoryTable();
+        }
+
+        // Render requests table
+        function renderRequestsTable() {
+            const tbody = document.getElementById('requestsBody');
+            const noRequests = document.getElementById('noRequests');
+            const pendingRequests = requests.filter(r => r.status === 'Pending');
+
+            tbody.innerHTML = '';
+
+            if (pendingRequests.length === 0) {
+                noRequests.style.display = 'block';
+                return;
+            }
+
+            noRequests.style.display = 'none';
+
+            pendingRequests.forEach(request => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${request.employeeId}</td>
+                    <td style="font-weight: 500;">${request.employeeName}</td>
+                    <td>${request.requestedPeriod}</td>
+                    <td style="color: #6b7280;">${request.requestDate}</td>
+                    <td><span class="status-badge status-pending">${request.status}</span></td>
+                    <td>
+                        <button class="btn btn-primary" onclick="handleUploadPayslip('${request.id}')">
+                            Upload Payslip
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Render history table
+        function renderHistoryTable() {
+            const tbody = document.getElementById('historyBody');
+            const noHistory = document.getElementById('noHistory');
+
+            tbody.innerHTML = '';
+
+            if (uploads.length === 0) {
+                noHistory.style.display = 'block';
+                return;
+            }
+
+            noHistory.style.display = 'none';
+
+            uploads.forEach(upload => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${upload.employeeId}</td>
+                    <td style="font-weight: 500;">${upload.employeeName}</td>
+                    <td>${upload.period}</td>
+                    <td style="font-weight: 600;">${upload.amount}</td>
+                    <td style="color: #6b7280;">${upload.uploadDate}</td>
+                    <td><span class="status-badge status-issued">${upload.status}</span></td>
+                    <td>
+                        <button class="action-btn" onclick="handlePreview('${upload.id}')" title="Preview Payslip">
+                            <i class="fas fa-eye" style="color: #3b82f6;"></i>
+                        </button>
+                        <button class="action-btn" onclick="handleDownload('${upload.id}')" title="Download Payslip">
+                            <i class="fas fa-download" style="color: #10b981;"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const uploadForm = document.getElementById('uploadForm');
+            uploadForm.addEventListener('submit', handleFormSubmit);
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('previewModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Handle upload payslip button click
+        function handleUploadPayslip(requestId) {
+            const request = requests.find(r => r.id === requestId);
+            if (request) {
+                const employee = employees.find(e => e.id === request.employeeId);
+                if (employee) {
+                    document.getElementById('employeeSelect').value = employee.id;
+                    const [month, year] = request.requestedPeriod.split('-');
+                    document.getElementById('monthSelect').value = month;
+                    document.getElementById('yearSelect').value = year;
+                }
+            }
+
+            // Scroll to upload section
+            document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const employeeId = document.getElementById('employeeSelect').value;
+            const month = document.getElementById('monthSelect').value;
+            const year = document.getElementById('yearSelect').value;
+            const amount = document.getElementById('amountInput').value;
+            const file = document.getElementById('fileInput').files[0];
+
+            if (!employeeId || !month || !year || !file) {
+                showToast('Please fill in all required fields and select a file.', 'error');
+                return;
+            }
+
+            const employee = employees.find(e => e.id === employeeId);
+            if (!employee) return;
+
+            const newUpload = {
+                id: `U${Date.now()}`,
+                employeeId: employeeId,
+                employeeName: employee.name,
+                period: `${month}-${year}`,
+                amount: amount || 'N/A',
+                uploadDate: new Date().toISOString().split('T')[0],
+                status: 'Issued',
+                fileName: file.name
+            };
+
+            uploads.push(newUpload);
+
+            // Mark corresponding request as completed
+            requests = requests.map(request => {
+                if (request.employeeId === employeeId && 
+                    request.requestedPeriod === `${month}-${year}`) {
+                    return { ...request, status: 'Completed' };
+                }
+                return request;
+            });
+
+            saveData();
+            renderTables();
+
+            // Reset form
+            document.getElementById('uploadForm').reset();
+
+            showToast('Payslip uploaded successfully!');
+        }
+
+        // Handle preview
+        function handlePreview(uploadId) {
+            const upload = uploads.find(u => u.id === uploadId);
+            if (upload) {
+                document.getElementById('modalContent').textContent = 
+                    `Preview for ${upload.employeeName} - ${upload.period}`;
+                document.getElementById('previewModal').style.display = 'block';
+            }
+        }
+
+        // Handle download
+        function handleDownload(uploadId) {
+            const upload = uploads.find(u => u.id === uploadId);
+            if (upload) {
+                showToast(`Downloading ${upload.fileName}`);
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('previewModal').style.display = 'none';
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            // Remove existing toast if any
+            const existingToast = document.querySelector('.toast');
+            if (existingToast) {
+                existingToast.remove();
+            }
+
+            const toast = document.createElement('div');
+            toast.className = `toast ${type === 'error' ? 'error' : ''}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            // Show toast
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body class="abc">
+    <div class="navbar">
+        <div id="option">
+            <i class="fa-solid fa-bars" onclick=menu()></i>
+        </div>
+        <div class="name">
+            <img src="../epical.png" heigh="30" width="50px">
+            <nav>
+                <h1>Epical Layout</h1>
+                <p>Employee Portal</p>
+            </nav>
+        </div>
+        <div class="nav-elements">
+            <nav class="in">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </nav>
+            <nav class="a" id="a">
+                <i class="fas fa-bell" height:70px></i>
+            </nav>
+            <nav class="a" id="b">
+                <i class="bi bi-moon-fill" onclick=dark()></i>
+            </nav>
+            <nav class="a" id="c">
+                <i class="fas fa-user-circle" id="user-icon"></i>   <!-- solid user circle -->
+            </nav>
+        </div>
+    </div>
+    <div id="side-bar">
+        <a href="../emp-Dashboard/dashboard.html"><ul>
+            <i class="fa-solid fa-house"></i><p>Dashboard</p>
+        </ul></a>
+        <a href="../timesheet-emp/time-emp.html"><ul>
+            <i class="fa-regular fa-clock"></i><p>Timesheet</p>
+        </ul></a>
+         <a href="../leavemanagement-emp/leave.html"><ul>
+           <i class="fa-regular fa-calendar"></i><p>Leave Management</p>
+        </ul></a>
+        <a href="../Documents_emp/documents.html"><ul>
+           <i class="fa-regular fa-file"></i><p>Documents</p>
+        </ul></a>
+        <a href="../profile/profile.html"><ul>
+            <i class="fa-regular fa-user"></i><p>Profile</p>
+        </ul></a>
+        <p>Quick-Actions</p>
+        <a href="#"><ul>
+            <i class="fa-solid fa-plus"></i><p>New Request</p>
+        </ul></a>
+        <a href="../payslip-emp/payslipmp.html"><ul>
+            <i class="fa-solid fa-download"></i><p>Download Payslip</p>
+        </ul></a>
+        <a href="#"><ul>
+            <i class="fa-solid fa-upload"></i><p>Upload Documents</p>
+        </ul></a>
+    </div>
+    
+    <script src="nav.js"></script>

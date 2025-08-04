@@ -1,0 +1,31 @@
+#side-bar{
+    width:270px;
+    display:flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    flex-direction: column;
+    margin:5px;
+    margin-top: 80px;
+    padding:10px;
+    height:650px;
+    justify-content: space-around;
+    position:fixed
+}
+#side-bar ul i{
+    margin-left:5px;
+    margin-right:20px;
+}
+#side-bar ul{
+    padding: 10px;
+}
+#side-bar p{
+    display:inline-block;
+}
+#side-bar ul:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2); 
+}
+a{
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}

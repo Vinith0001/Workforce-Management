@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restricted Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restricted Access Page</h1>
+        <p class="warning">Warning: This page has restricted functionality.</p>
+        <p>You cannot refresh this page, switch to other tabs, or use certain keyboard shortcuts.</p>
+        <p>Attempting to do so will result in a warning message.</p>
+        <div id="warningMessage"></div>
+    </div>
+
+    <script>
+        // Prevent page refresh
+        // Request fullscreen (works best when triggered by user gesture)
+function enterFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+}
+
+// Auto-fullscreen on click (most browsers require user gesture)
+document.addEventListener('click', enterFullscreen);
+
+// Prevent exiting fullscreen
+document.addEventListener('fullscreenchange', (event) => {
+    if (!document.fullscreenElement) {
+        enterFullscreen();
+    }
+});
+
+// Disable text selection
+document.addEventListener('selectstart', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// More aggressive keyboard blocking
+const blockedKeys = [
+    'F1', 'F5', 'F11', 'F12', 'Tab', 
+    'Alt', 'Control', 'Meta', 'Escape'
+];
+
+document.addEventListener('keydown', (e) => {
+    if (blockedKeys.includes(e.key) || 
+        e.ctrlKey || e.altKey || e.metaKey) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+});
+
+    </script>
+</body>
+</html>

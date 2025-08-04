@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payslip Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="payslipemp.css">
+</head>
+<body>
+    <!-- Header -->
+     <body class="abc">
+    <div class="navbar">
+        <div id="option">
+            <i class="fa-solid fa-bars" onclick=menu()></i>
+        </div>
+        <div class="name">
+            <img src="../epical.png" heigh="30" width="50px">
+            <nav>
+                <h1>Epical Layout</h1>
+                <p>Employee Portal</p>
+            </nav>
+        </div>
+        <div class="nav-elements">
+            <nav class="in">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </nav>
+            <nav class="a" id="a">
+                <i class="fas fa-bell" height:70px></i>
+            </nav>
+            <nav class="a" id="b">
+                <i class="bi bi-moon-fill" onclick=dark()></i>
+            </nav>
+            <nav class="a" id="c">
+                <i class="fas fa-user-circle" id="user-icon"></i>
+            </nav>
+        </div>
+    </div>
+    <div id="side-bar">
+        <a href="../emp-Dashboard/dashboard.html"><ul>
+            <i class="fa-solid fa-house"></i><p>Dashboard</p>
+        </ul></a>
+        <a href="../timesheet-emp/time-emp.html"><ul>
+            <i class="fa-regular fa-clock"></i><p>Timesheet</p>
+        </ul></a>
+         <a href="../leavemanagement-emp/leave.html"><ul>
+           <i class="fa-regular fa-calendar"></i><p>Leave Management</p>
+        </ul></a>
+        <a href="../Documents_emp/documents.html"><ul>
+           <i class="fa-regular fa-file"></i><p>Documents</p>
+        </ul></a>
+        <a href="../profile/profile.html"><ul>
+            <i class="fa-regular fa-user"></i><p>Profile</p>
+        </ul></a>
+        <p>Quick-Actions</p>
+        <a href="#"><ul>
+            <i class="fa-solid fa-plus"></i><p>New Request</p>
+        </ul></a>
+        <a href="../payslip-emp/payslipmp.html"><ul>
+            <i class="fa-solid fa-download"></i><p>Download Payslip</p>
+        </ul></a>
+        <a href="#"><ul>
+            <i class="fa-solid fa-upload"></i><p>Upload Documents</p>
+        </ul></a>
+    </div>
+    <div class="left">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="header-title">
+                        <i class="fas fa-file-invoice"></i>
+                        Employee Payslip Portal
+                    </h1>
+                    <p class="header-subtitle">Request and manage your payslips</p>
+                </div>
+                <div class="header-right">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Payslip Request Form -->
+            <section class="request-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-plus-circle"></i>
+                            Request a Payslip
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <form id="payslipForm" class="payslip-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="month">Month</label>
+                                    <select id="month" name="month" required>
+                                        <option value="">Select Month</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                        <option value="July">July</option>
+                                        <option value="August">August</option>
+                                        <option value="September">September</option>
+                                        <option value="October">October</option>
+                                        <option value="November">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <select id="year" name="year" required>
+                                        <option value="">Select Year</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Request Payslip
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pending Requests Table -->
+            <section class="pending-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-clock"></i>
+                            Pending Payslip Requests
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table id="pendingTable" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee Name</th>
+                                        <th>Payslip Period</th>
+                                        <th>Request Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pendingTableBody">
+                                    <tr class="empty-state">
+                                        <td colspan="4">
+                                            <div class="empty-message">
+                                                <i class="fas fa-inbox"></i>
+                                                <p>No pending requests</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Received Payslips Table -->
+            <section class="received-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-check-circle"></i>
+                            Received Payslips
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table id="receivedTable" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Month-Year</th>
+                                        <th>Date Received</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="receivedTableBody">
+                                    <tr>
+                                        <td>November 2024</td>
+                                        <td>2024-12-05</td>
+                                        <td>
+                                            <button class="btn btn-download" onclick="downloadPayslip('November 2024')">
+                                                <i class="fas fa-download"></i>
+                                                Download
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>October 2024</td>
+                                        <td>2024-11-05</td>
+                                        <td>
+                                            <button class="btn btn-download" onclick="downloadPayslip('October 2024')">
+                                                <i class="fas fa-download"></i>
+                                                Download
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>September 2024</td>
+                                        <td>2024-10-05</td>
+                                        <td>
+                                            <button class="btn btn-download" onclick="downloadPayslip('September 2024')">
+                                                <i class="fas fa-download"></i>
+                                                Download
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>For any issues with payslip requests, please contact HR at 
+                <a href="mailto:hr@company.com">hr@company.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="payslipemp.js"></script>
+</body>
+</html>

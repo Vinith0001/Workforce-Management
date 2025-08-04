@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Employees</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="show-emp.css">
+  </head>
+  <body>
+    <div class="navbar">
+        <div class="name">
+            <img src="../epical.png" heigh="30" width="50px">
+            <nav>
+                <h1>Epical Layout</h1>
+                <p>Admin Portal</p>
+            </nav>
+        </div>
+        <div class="nav-elements">
+            <nav class="in">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </nav>
+            <nav class="a" id="a">
+                <i class="fas fa-bell" height:70px></i>
+            </nav>
+            <nav class="a" id="b">
+                <i class="bi bi-moon-fill"></i>
+            </nav>
+            <nav class="a" id="c" style="margin-right: 30px;">
+                <i class="fas fa-user-circle" id="user-icon"></i>   <!-- solid user circle -->
+            </nav>
+        </div>
+    </div>
+    <div class="side-bar">
+      <a href="../ad-Dashboard/ad-dashboard.html">
+        <ul>
+        <i class="fa-solid fa-house"></i><p>Dashboard</p>
+        </ul></a>
+      <a href="../timesheet-admin/timeadmin.html"><ul>
+          <i class="fa-regular fa-clock"></i><p>Timesheet</p>
+      </ul></a>
+      <a href="../leavemanagement-ad/leave-ad.html"><ul>
+        <i class="fa-solid fa-user-pen"></i><p>Leave Management</p>
+      </ul></a>
+      <a href="../admin-holiday/publicholiday.html"><ul>
+        <i class="fa-regular fa-calendar"></i><p>Holiday Planner</p>
+      </ul></a>
+      <a href="../emp details/show-emp.html"><ul>
+        <i class="fa-regular fa-user"></i><p>Employee</p>
+      </ul></a>
+      <p>Quick-Actions</p>
+      <a href="../../forms/update.html"><ul>
+        <i class="fa-solid fa-flask"></i><p>Lab</p>
+      </ul></a>
+      <a href="../../forms/update.html"><ul>
+        <i class="fa-solid fa-upload"></i><p>Upload Payslip</p>
+      </ul></a>
+      <a href="../../forms/update.html"><ul>
+        <i class="fa-solid fa-id-card"></i><p>Documents Requests</p>
+      </ul></a>
+    </div>
+    </div>
+    <div class="left">
+      <div class="box">
+        <div class="display">
+        <div class="Search-add">
+          <div class="text">
+          <h2>Employees</h2>
+          <p>You can view the Employees</p></div>
+          <nav class="in">
+            <i class="fa fa-search"></i>
+            <input type="text" id="searchInput" placeholder="🔍 Search employee..." />
+          </nav>
+        </div>
+
+          <a href="addusers.html"><div class="addemp">
+            <!--linked-->
+            <p>+ Add Employee</p><br>
+            </div>
+          </div></a>
+        </div>
+        <p class="success-add"> Employee added successfully <sup><i class="fa-solid fa-xmark"></i></sup> </p>
+        <p class="success-edit"> Employee edited successfully <sup><i class="fa-solid fa-xmark"></i></sup> </p>
+        <p class="success-delete"> Employee deleted successfully <sup><i class="fa-solid fa-xmark"></i></sup> </p>
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>EmployeeId</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Employee Type</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="leaveTableBody">
+              <tr>
+                <td class="bold">1</td>
+                <td class="bold">
+                  <p>EMP001</p>
+                </td>
+                <td class="duration">VINITH</td>
+                <td class="Status">
+                  <p class="blocked">Active</p>
+                </td>
+                <td class="bold"> <p>Full-time</p></td>
+                <td class="button"> <a class="edit" href="update.html"><i class="fa-solid fa-pencil"></i> Edit</a>
+                <p class="block" onclick=block(event)><i class="fas fa-ban"></i> Block</p>              
+
+              </tr>
+              <tr>
+                <td class="bold">1</td>
+                <td class="bold">
+                  <p>EMP001</p>
+                </td>
+                <td class="duration">Parthiban</td>
+                <td class="Status">
+                  <p class="blocked">Active</p>
+                </td>
+                <td class="bold"><p>Full-time</p></td>
+                <td class="button"> <a class="edit" href="update.html"><i class="fa-solid fa-pencil"></i> Edit</a>
+                <p class="block" onclick=block(event)><i class="fas fa-ban"></i> Block</p>              
+
+              </tr>
+              <tr>
+                <td class="bold">1</td>
+                <td class="bold">
+                  <p>EMP001</p>
+                </td>
+                <td class="duration">Nedesh</td>
+                <td class="Status">
+                  <p class="blocked">Active</p>
+                </td>
+                <td class="bold"> <p>Full-time</p></td>
+                <td class="button"> <a class="edit" href="update.html"><i class="fa-solid fa-pencil"></i> Edit</a>
+                <p class="block" onclick=block(event)><i class="fas fa-ban"></i> Block</p>              
+
+              </tr>
+              <tr>
+                <td class="bold">1</td>
+                <td class="bold">
+                  <p>EMP001</p>
+                </td>
+                <td class="duration">ABC</td>
+                <td class="Status">
+                  <p class="blocked">Active</p>
+                </td>
+                <td class="bold"> <p>Full-time</p></td>
+                <td class="button"> <a class="edit" href="update.html"><i class="fa-solid fa-pencil"></i> Edit</a>
+                <p class="block" onclick=block(event)><i class="fas fa-ban"></i> Block</p>              
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="profile-popup" id="profilePopup">
+            <div class="close-popup" id="closePopup">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="profile-header">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="profile-pic" alt="Profile">
+                <h3>John Doe</h3>
+                <p>Software Engineer</p>
+            </div>
+            <div class="profile-body">
+                <div class="profile-info">
+                    <h4>Email</h4>
+                    <p>john.doe@company.com</p>
+                </div>
+                <div class="profile-info">
+                    <h4>Employee ID</h4>
+                    <p>EMP-2048</p>
+                </div>
+                <div class="profile-info">
+                    <h4>Department</h4>
+                    <p>Engineering - IT</p>
+                </div>
+                <div class="profile-info">
+                    <h4>Join Date</h4>
+                    <p>March 15, 2020</p>
+                </div>
+            </div>
+            <div class="profile-footer">
+                    <button class="profile-btn view-profile">View Full Profile</button>
+                    <button class="profile-btn logout">Log Out</button>
+            </div>
+
+        </div> 
+    </div>
+    <div class="block-popup">
+  <div class="head-popup">
+    <h2>Specify the Reason</h2>
+    <input type="text" placeholder="Enter reason here..." />
+    <div class="popup-buttons">
+      <button class="btn block">
+        <i class="fas fa-ban"></i> Block
+      </button>
+      <button class="btn cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+<script src="show-emp.js"></script>
+  </body>
+</html>
+

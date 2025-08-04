@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="time-emp.css">
+</head>
+<body class="abc">
+    <div class="navbar">
+        <div id="option">
+            <i class="fa-solid fa-bars" onclick=menu()></i>
+        </div>
+        <div class="name">
+            <img src="../epical.png" heigh="30" width="50px">
+            <nav>
+                <h1>Epical Layout</h1>
+                <p>Employee Portal</p>
+            </nav>
+        </div>
+        <div class="nav-elements">
+            <nav class="in">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </nav>
+            <nav class="a" id="a">
+                <i class="fas fa-bell" height:70px></i>
+            </nav>
+            <nav class="a" id="b">
+                <i class="bi bi-moon-fill" onclick=dark()></i>
+            </nav>
+            <nav class="a" id="c">
+                <i class="fas fa-user-circle" id="user-icon"></i>   <!-- solid user circle -->
+            </nav>
+        </div>
+    </div>
+    <div id="side-bar">
+        <a href="../emp-Dashboard/dashboard.html"><ul>
+            <i class="fa-solid fa-house"></i><p>Dashboard</p>
+        </ul></a>
+        <a href="../timesheet-emp/time-emp.html"><ul>
+            <i class="fa-regular fa-clock"></i><p>Timesheet</p>
+        </ul></a>
+         <a href="../leavemanagement-emp/leave.html"><ul>
+           <i class="fa-regular fa-calendar"></i><p>Leave Management</p>
+        </ul></a>
+        <a href="../Documents_emp/documents.html"><ul>
+           <i class="fa-regular fa-file"></i><p>Documents</p>
+        </ul></a>
+        <a href="../profile/profile.html"><ul>
+            <i class="fa-regular fa-user"></i><p>Profile</p>
+        </ul></a>
+        <p>Quick-Actions</p>
+        <a href="#"><ul>
+            <i class="fa-solid fa-plus"></i><p>New Request</p>
+        </ul></a>
+        <a href="../payslip-emp/payslipmp.html"><ul>
+            <i class="fa-solid fa-download"></i><p>Download Payslip</p>
+        </ul></a>
+        <a href="#"><ul>
+            <i class="fa-solid fa-upload"></i><p>Upload Documents</p>
+        </ul></a>
+    </div>
+    <div class="left">
+        <div class="timesheetmanagement">
+            <div class="para">
+                <h1>Timesheet Management</h1><br>
+                <p>Track your daily work hours and tasks</p>
+            </div>
+        </div>
+        <div class="recententries">
+  <h2>Recent Entries</h2>
+  <p>Your timesheet entries for this week</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Project</th>
+        <th>Duration</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="bold">2024-01-15</td>
+        <td class="bold">
+          <i class="fas fa-circle purple-dot"></i> UI/UX Design Review
+        </td>
+        <td class="duration"><strong>8h 30m</strong></td>
+        <td class="inprogress">
+          <i class="fa-solid fa-spinner"></i> In Progress
+        </td>
+          <td>
+    <button class="start" >Start</button>
+    <button class="completed">Completed</button>
+  </td>
+        </td>
+      </tr>
+      <tr>
+        <td class="bold">2024-01-14</td>
+        <td class="bold">
+          <i class="fas fa-circle purple-dot"></i> Front-end Development
+        </td>
+        <td class="duration"><strong>9h 05m</strong></td>
+        <td class="nys">
+          	<i class="fa-solid fa-thumbs-down" ></i> Not yet Started
+        </td>
+        <td>
+    <button class="start">Start</button>
+    <button class="completed">Completed</button>
+  </td>
+      </tr>
+      <tr>
+        <td class="bold">2024-01-13</td>
+        <td class="bold">
+          <i class="fas fa-circle purple-dot"></i> Machine Learning
+        </td>
+        <td class="duration"><strong>5h 10m</strong></td>
+        <td class="complete">
+          <i class="fa-solid fa-check"></i> Completed
+        </td>
+        <td>
+    <button class="start" >Start</button>
+    <button class="completed" >Completed</button>
+  </td>
+      <tr>
+        <td class="bold">2024-01-10</td>
+        <td class="bold">
+          <i class="fas fa-circle purple-dot"></i> Web Development
+        </td>
+        <td class="duration"><strong>6h 49m</strong></td>
+        <td class="complete">
+          <i class="fa-solid fa-check"></i> Completed
+        </td>
+        <td>
+       <button class="start" >Start</button>
+    <button class="completed" >Completed</button></td>
+      
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        <div class="container">
+  <h1>📋 Task List Panel</h1>
+
+  <div id="task-list" class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>✅ Task Name</th>
+          <th>🕒 Deadline</th>
+          <th>🔖 Status</th>
+          <th>🔘 Actions</th>
+        </tr>
+      </thead>
+      <tbody id="task-table-body"></tbody>
+    </table>
+  </div>
+
+  <div id="upload-section" class="card hidden">
+    <h2>📂 Upload Document</h2>
+    <input type="file" id="file-input" />
+    <p id="file-name"></p>
+    <textarea id="note" placeholder="Add a note or comment (optional)"></textarea>
+    <button id="upload-btn" disabled style="width: 200px;">✅ Upload</button>
+    <p id="upload-time"></p>
+    <button id="complete-btn" disabled class="green" style="width: 220px;">✅ Complete Task</button>
+  </div>
+
+  <div class="card">
+    <h2>📄 Task History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>📋 Task Title</th>
+          <th>📌 Status</th>
+          <th>🗓 Start</th>
+          <th>🗓 Submitted</th>
+          <th>🔍 File</th>
+        </tr>
+      </thead>
+      <tbody id="history-table-body"></tbody>
+    </table>
+  </div>
+
+  <div id="status-tracker" class="card small">
+   
+    <p>⬆ Uploaded: <span id="upload-status">No</span></p>
+    <div class="progress-bar"><div id="progress" style="width: 0%;"></div></div>
+  </div>
+
+  <div id="notification" class="toast hidden"></div>
+</div>
+
+      </div>
+    <div class="profile-popup" id="profilePopup">
+    <div class="close-popup" id="closePopup">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="profile-header">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="profile-pic" alt="Profile">
+        <h3>John Doe</h3>
+        <p>Software Engineer</p>
+    </div>
+    <div class="profile-body">
+        <div class="profile-info">
+            <h4>Email</h4>
+            <p>john.doe@company.com</p>
+        </div>
+        <div class="profile-info">
+            <h4>Employee ID</h4>
+            <p>EMP-2048</p>
+        </div>
+        <div class="profile-info">
+            <h4>Department</h4>
+            <p>Engineering - IT</p>
+        </div>
+        <div class="profile-info">
+            <h4>Join Date</h4>
+            <p>March 15, 2020</p>
+        </div>
+    </div>
+    <div class="profile-footer">
+
+            <a href=""><button class="profile-btn view-profile">View Full Profile</button></a>
+            <button class="profile-btn logout">Log Out</button>
+    </div>
+    </div>
+</body>
+
+
+
+
+    <script src="time-emp.js"></script>

@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Request Management System</title>
+    <link rel="stylesheet" href="new_req.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Employee Request Management System</h1>
+            <p>Submit and track your workplace requests</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Employee Information Section -->
+            <div class="card employee-info">
+                <div class="section-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Employee Information</h2>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Name</label>
+                        <div class="info-value" id="employee-name">John Doe</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Employee ID</label>
+                        <div class="info-value" id="employee-id">EMP001</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Department</label>
+                        <div class="info-value" id="employee-department">IT Department</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Role/Designation</label>
+                        <div class="info-value" id="employee-role">Senior Developer</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Selection Section -->
+            <div class="card project-section">
+                <div class="section-header">
+                    <i class="fas fa-briefcase"></i>
+                    <h2>Project Selection</h2>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="project-dropdown">Select Project</label>
+                        <select id="project-dropdown" class="select-input">
+                            <option value="">Choose a project...</option>
+                            <option value="project-alpha" data-id="PRJ-001">Project Alpha</option>
+                            <option value="project-beta" data-id="PRJ-002">Project Beta</option>
+                            <option value="project-gamma" data-id="PRJ-003">Project Gamma</option>
+                            <option value="project-delta" data-id="PRJ-004">Project Delta</option>
+                            <option value="project-omega" data-id="PRJ-005">Project Omega</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-id">Project ID</label>
+                        <input type="text" id="project-id" class="text-input" readonly placeholder="Auto-filled Project ID">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Request Type Section -->
+            <div class="card request-type-section">
+                <div class="section-header">
+                    <i class="fas fa-tags"></i>
+                    <h2>Request Type</h2>
+                </div>
+                
+                <div class="request-types">
+                    <label class="request-type-option">
+                        <input type="radio" name="request-type" value="access-request">
+                        <span class="radio-custom"></span>
+                        <i class="fas fa-key"></i>
+                        Access Request
+                    </label>
+                    <label class="request-type-option">
+                        <input type="radio" name="request-type" value="clarification">
+                        <span class="radio-custom"></span>
+                        <i class="fas fa-question-circle"></i>
+                        Clarification
+                    </label>
+                    <label class="request-type-option">
+                        <input type="radio" name="request-type" value="bug-report">
+                        <span class="radio-custom"></span>
+                        <i class="fas fa-bug"></i>
+                        Bug Report
+                    </label>
+                    <label class="request-type-option">
+                        <input type="radio" name="request-type" value="deadline-extension">
+                        <span class="radio-custom"></span>
+                        <i class="fas fa-clock"></i>
+                        Deadline Extension
+                    </label>
+                    <label class="request-type-option">
+                        <input type="radio" name="request-type" value="resource-request">
+                        <span class="radio-custom"></span>
+                        <i class="fas fa-tools"></i>
+                        Resource Request
+                    </label>
+                </div>
+            </div>
+
+            <!-- Request Details Section -->
+            <div class="card request-details-section">
+                <div class="section-header">
+                    <i class="fas fa-edit"></i>
+                    <h2>Request Details</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label for="request-details">Request Details/Explanation</label>
+                    <textarea id="request-details" class="textarea-input" rows="5" placeholder="Please provide detailed information about your request..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Supporting Files (Optional)</label>
+                    <div class="upload-area" id="upload-area">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drag & drop your files here</h3>
+                        <p>or click to browse files</p>
+                        <input type="file" id="file-input" multiple accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg,.txt" hidden>
+                        <button class="browse-btn" onclick="document.getElementById('file-input').click()">Browse Files</button>
+                        <div class="file-info">
+                            <p>Supported formats: PDF, DOCX, XLSX, PNG, JPG, TXT</p>
+                            <p>Maximum file size: 5MB per file</p>
+                        </div>
+                    </div>
+                    <div id="uploaded-files" class="uploaded-files"></div>
+                </div>
+            </div>
+
+            <!-- Submit Request Button -->
+            <div class="submit-section">
+                <button id="submit-request" class="submit-btn" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Request
+                </button>
+            </div>
+
+            <!-- Request History Table -->
+            <div class="card history-section">
+                <div class="section-header">
+                    <i class="fas fa-history"></i>
+                    <h2>My Previous Requests</h2>
+                    <div class="filter-group">
+                        <i class="fas fa-filter"></i>
+                        <select id="status-filter" class="filter-select">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="in-progress">In Progress</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Project Name</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-tbody">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="no-requests" class="no-requests" style="display: none;">
+                    No requests found with the selected filter.
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmation-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-check-circle"></i> Request Submitted Successfully!</h3>
+                    <button class="close-btn" id="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Your request has been submitted and assigned ID: <strong id="new-request-id"></strong></p>
+                    <p>You will receive updates on the status of your request via email.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="modal-ok" class="modal-btn">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="new_req.js"></script>
+</body>
+</html>

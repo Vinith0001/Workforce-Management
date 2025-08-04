@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="leave.css">
+</head>
+<body class="abc">
+    <div class="navbar">
+        <div id="option">
+            <i class="fa-solid fa-bars" onclick=menu()></i>
+        </div>
+        <div class="name">
+            <img src="../epical.png" heigh="30" width="50px">
+            <nav>
+                <h1>Epical Layout</h1>
+                <p>Employee Portal</p>
+            </nav>
+        </div>
+        <div class="nav-elements">
+            <nav class="in">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </nav>
+            <nav class="a" id="a">
+                <i class="fas fa-bell" height:70px></i>
+            </nav>
+            <nav class="a" id="b">
+                <i class="bi bi-moon-fill" onclick=dark()></i>
+            </nav>
+            <nav class="a" id="c">
+                <i class="fas fa-user-circle" id="user-icon"></i> 
+            </nav>
+        </div>
+    </div>
+    <div id="side-bar">
+        <a href="../emp-Dashboard/dashboard.html"><ul>
+            <i class="fa-solid fa-house"></i><p>Dashboard</p>
+        </ul></a>
+        <a href="../timesheet-emp/time-emp.html"><ul>
+            <i class="fa-regular fa-clock"></i><p>Timesheet</p>
+        </ul></a>
+         <a href="../leavemanagement-emp/leave.html"><ul>
+           <i class="fa-regular fa-calendar"></i><p>Leave Management</p>
+        </ul></a>
+        <a href="../Documents_emp/documents.html"><ul>
+           <i class="fa-regular fa-file"></i><p>Documents</p>
+        </ul></a>
+        <a href="../profile/profile.html"><ul>
+            <i class="fa-regular fa-user"></i><p>Profile</p>
+        </ul></a>
+        <p>Quick-Actions</p>
+        <a href="#"><ul>
+            <i class="fa-solid fa-plus"></i><p>New Request</p>
+        </ul></a>
+        <a href="../payslip-emp/payslipmp.html"><ul>
+            <i class="fa-solid fa-download"></i><p>Download Payslip</p>
+        </ul></a>
+        <a href="#"><ul>
+            <i class="fa-solid fa-upload"></i><p>Upload Documents</p>
+        </ul></a>
+    </div>
+    <div class="left">
+        <div class="leavemanagement">
+            <div class="para">
+                <h1>Leave Management</h1><br>
+                <p>Apply for leave and track your balance</p>
+            </div>
+            <div class="apply" onclick=applyleave()>
+                <i class="fa-solid fa-plus"> </i>Apply For Leave
+            </div>
+        </div>
+        <div class="float">
+            <div class="CL">
+                <h2><i class="fa-solid fa-mug-hot" style="color: green;"></i> <h2>  Casual Leave</h2>
+                <div class="cent">
+                    <h1>4</h1><br></div>
+                <p >out of 12 days</p>
+                <progress value="33" max="100"></progress>
+            </div>
+            <div class="SL">
+                <h2><i class="fa-solid fa-syringe"></i> Sick Leave</h2>
+                <div class="cent">
+                    <h1>8</h1><br></div>
+                    <p>out of 12 days</p>
+                <progress value="67" max="100"></progress>
+            </div>
+            <div class="EL">
+                <h2><i class="fa-solid fa-award"></i>  Earned Leave</h2>
+                <div class="cent">
+                    <h1>6</h1><br></div>
+                    <p>out of 12 days</p>
+                <progress value="50" max="100"></progress>
+            </div>
+        </div>
+        <div class="recententries">
+  <h2>Leave Requests</h2>
+  <p>Your recent leave applications</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Date Range</th>
+        <th>Days</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="bold" id="border">Casual</td>
+        <td class="bold">2024-07-20 to 2024-07-22
+        </td>
+        <td>3</td>
+        <td class="duration"><strong>Family Function</strong></td>
+        <td class="inprogress">
+          <i class="fa-solid fa-spinner"></i> Pending
+        </td>
+        <td><i class="fa-regular fa-eye view-icon"></i></td>
+      </tr>
+      <tr>
+        <td class="bold" id="border">Casual</td>
+        <td class="bold">2024-07-20 to 2024-07-22
+        </td>
+        <td>3</td>
+        <td class="duration"><strong>Family Function</strong></td>
+        <td class="completed">
+          <i class="fa-solid fa-check"></i> Approved
+        </td>
+        <td><i class="fa-regular fa-eye view-icon"></i></td>
+      </tr>
+      <tr>
+        <td class="bold" id="border">Casual</td>
+        <td class="bold">2024-07-20 to 2024-07-22
+        </td>
+        <td>3</td>
+        <td class="duration"><strong>Family Function</strong></td>
+        <td class="completed">
+          <i class="fa-solid fa-check"></i> Approved
+        </td>
+        <td><i class="fa-regular fa-eye view-icon"></i></td>
+      </tr>
+      <tr>
+        <td class="bold" id="border">Casual</td>
+        <td class="bold">2024-07-20 to 2024-07-22
+        </td>
+        <td>3</td>
+        <td class="duration"><strong>Family Function</strong></td>
+        <td class="completed">
+          <i class="fa-solid fa-check"></i> Approved
+        </td>
+        <td><i class="fa-regular fa-eye view-icon"></i></td>
+      </tr>
+    </tbody></table>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="month-nav">
+                <button class="nav-btn" id="prevMonth">←</button>
+                <div class="month-title" id="monthYear">July 2023</div>
+                <button class="nav-btn" id="nextMonth">→</button>
+            </div>
+        </div>
+
+        <div class="calendar-grid" id="calendar">
+            <!-- Day headers -->
+            <div class="day-header">Sun</div>
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+            <div class="day-header">Sat</div>
+            
+            <!-- Calendar days will be inserted here by JavaScript -->
+        </div>
+        
+        <h2>Public Holidays</h2>
+        <table class="holidays-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Holiday Name</th>
+                </tr>
+            </thead>
+            <tbody id="holidaysTableBody">
+                <!-- Holidays will be inserted here -->
+            </tbody>
+        </table>
+
+        </div>
+        <div class="profile-popup" id="profilePopup">
+        <div class="close-popup" id="closePopup">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="profile-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="profile-pic" alt="Profile">
+            <h3>John Doe</h3>
+            <p>Software Engineer</p>
+        </div>
+        <div class="profile-body">
+            <div class="profile-info">
+                <h4>Email</h4>
+                <p>john.doe@company.com</p>
+            </div>
+            <div class="profile-info">
+                <h4>Employee ID</h4>
+                <p>EMP-2048</p>
+            </div>
+            <div class="profile-info">
+                <h4>Department</h4>
+                <p>Engineering - IT</p>
+            </div>
+            <div class="profile-info">
+                <h4>Join Date</h4>
+                <p>March 15, 2020</p>
+            </div>
+        </div>
+        <div class="profile-footer">
+            <a href="../profile/profile.html"><button class="profile-btn view-profile">View Full Profile</button></a>
+            <a href="../login/index.html"><button class="profile-btn logout">Log Out</button></a>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="leave-popup-overlay">
+    <div class="leave-application-container">
+        <h1 class="leave-popup-title">Apply for Leave</h1>
+        <label class="leave-date-label">From date</label>
+        <input type="date" class="leave-date-input">
+        <label class="leave-date-label">To Date</label>
+        <input type="date" class="leave-date-input">
+        <p class="leave-description-label">Description</p>
+        <input type="text" class="leave-description-input">
+        <div class="leave-action-buttons">
+            <button class="leave-submit-btn">Submit</button>
+            <button class="leave-cancel-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="leave.js"></script>
+            

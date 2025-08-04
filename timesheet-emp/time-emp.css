@@ -1,0 +1,423 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+    *{
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+        font-family: 'Poppins','sans-serif';
+    }
+    h1 {
+    margin-bottom: 0px; 
+    }
+    a{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    }
+    p {
+    margin-top: 0;
+    }
+
+    .navbar{
+        display:flex;
+        justify-content: space-between;
+        background-color:rgba(255, 255, 255, 0.8);
+        color: black;
+        margin: 5px;
+        width:100%;
+        transition: color 0.3s ease;
+        text-decoration: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        position: fixed;
+    }
+    .nav-elements{
+        display:flex;
+        padding: 20px;
+    }
+    .nav-elements nav{
+        justify-content: space-around;
+        margin-left:60px;
+    }
+    .name{
+        display:flex;
+        margin:10px;
+    }
+    .name nav{
+        margin-left: 10px;
+    }
+    nav input{
+        border: none;
+        background-color: transparent;
+    }
+    .in{
+    border-style: solid;
+        border-radius: 40px;
+        height: 40px;
+        width: 225px;
+        
+    }
+    nav i{
+        margin-top:10px;
+        margin-left:20px;
+    }
+    .a i{
+        font-size: 20px;
+    }
+
+    input:focus{
+    outline: none;
+    }
+    nav i:hover{
+        cursor: pointer;
+    }
+    #b{
+        padding: 5px;
+    }
+    #side-bar{
+        width:270px;
+        display:flex;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        flex-direction: column;
+        margin:5px;
+        margin-top: 80px;
+        padding:10px;
+        height:650px;
+        justify-content: space-around;
+        position:fixed
+    }
+    #side-bar ul i{
+        margin-left:5px;
+        margin-right:20px;
+    }
+    #side-bar ul{
+        padding: 10px;
+    }
+    #side-bar p{
+        display:inline-block;
+    }
+    #side-bar ul:hover{
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.2); 
+    }
+    .mess h1{
+        display:inline-block;
+    }
+    .left{
+
+        margin-left:270px;
+        padding-left:20px;
+        padding-top: 20px;
+        width:1250px;
+    }
+    #option{
+        padding: 10px;
+        margin:10px;
+        display: none;
+    }
+    .timesheetmanagement{
+        margin-top: 85px;
+        display:flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    .timesheetmanagement h1,p{
+        display: inline-block;
+    }
+    .timesheetmanagement p{
+        margin-left: 2.5px;
+    }
+    .para{
+        margin-left: 10px;
+    }
+    #display {
+    font-size: 48px;
+    color: black;
+    }
+
+    button {
+    padding: 10px 20px;
+    margin: 5px;
+    margin-top: 15px;
+    font-size: 16px;
+    background: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    width: 110px;
+    border-radius: 20px;
+    }
+    .recententries {
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    .recententries h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    }
+
+    .recententries p {
+    color: #555;
+    font-size: 16px;
+    }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    }
+
+    th, td {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 15px;
+    }
+
+    th {
+    background-color: #f3f3f3;
+    font-weight: 600;
+    color: #444;
+    border-bottom: 2px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+    background-color: #f9f9f9;
+    }
+
+    tr:hover {
+    background-color: #f1f1f1;
+    }
+
+    .bold {
+    font-weight: 500;
+    color: #333;
+    }
+
+    .purple-dot {
+    color: purple;
+    font-size: 10px;
+    padding-right: 8px;
+    }
+
+    .duration strong {
+    color: #222;
+    }
+
+    .inprogress {
+    color: #e67e22;
+    font-weight: 500;
+    }
+
+    .completed {
+    color: #2ecc71;
+    font-weight: 500;
+    }
+
+    .view-icon {
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+    }
+
+    .view-icon:hover {
+    color: #000;
+    }
+    .profile-popup {
+        display: none;
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        width: 350px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        z-index: 1000;
+        overflow: hidden;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-header {
+        background: linear-gradient(135deg, #3498db, #2c3e50);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    .profile-body {
+        padding: 20px;
+    }
+
+    .profile-info {
+        margin-bottom: 15px;
+    }
+
+    .profile-info h4 {
+        color: #3498db;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .profile-info p {
+        color: #555;
+        font-size: 14px;
+    }
+
+    .profile-footer {
+        border-top: 1px solid #eee;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .profile-btn {
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .view-profile {
+        background: #3498db;
+        color: white;
+        border: none;
+    }
+
+    .logout {
+        background: none;
+        border: 1px solid #e74c3c;
+        color: #e74c3c;
+    }
+
+    .profile-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .close-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        cursor: pointer;
+        background: rgba(0,0,0,0.2);
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+  .card {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .small {
+    max-width: 300px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button.blue {
+    background: #2196F3;
+    color: white;
+  }
+  .container{
+    margin: 9px;
+    padding: 10px;
+  }
+  button.green {
+    background: #4CAF50;
+    color: white;
+  }
+  button.gray {
+    background: gray;
+    color: white;
+  }
+  textarea {
+    width: 100%;
+    height: 60px;
+    margin-top: 0.5rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    opacity: 0.9;
+  }
+  .progress-bar {
+    background: #ddd;
+    height: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  .progress-bar div {
+    height: 100%;
+    background: #4CAF50;
+    width: 0%;
+    border-radius: 5px;
+  }
+  button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.start{ background: #17a2b8; color: white; }
+.completed { background: #10b981; color: white; margin-left: 0.5rem; }
+.complete{
+    color: green;
+}
+.nys{
+    color:#6c757d
+}
+
