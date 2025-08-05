@@ -22,10 +22,6 @@
             </nav>
         </div>
         <div class="nav-elements">
-            <nav class="in">
-                <i class="fa fa-search"></i>
-                <input type="text" placeholder="Search">
-            </nav>
             <nav class="a" id="a">
                 <i class="fas fa-bell" height:70px></i>
             </nav>
@@ -69,12 +65,16 @@
         <div class="mess">
             <h1>Welcome back,Boss!</h1><br>
             <p>Here's your activity Summary for today</p>
-            <div id="timer">
-                <div class="timer">
-                    <i class="fa-regular fa-clock"></i><p> Start Timer</p>
+            <div class="info-cards">
+                <div class="info-card quote-card">
+                    <i class="fa-solid fa-quote-left icon"></i>
+                    <p class="label" style="color: #FBAE3C;">Quote of the Day</p>
+                    <p class="value" id="quote-text">Loading...</p>
                 </div>
-                <div class="date">
-                    <i class="fa-regular fa-calendar"></i><p>Date</p>
+                <div class="info-card date-card">
+                    <i class="fa-regular fa-calendar icon"></i>
+                    <p class="label" label style="color:#FF8A65">Today</p>
+                    <p class="value" id="current-date">Loading...</p>
                 </div>
             </div>
         </div>
@@ -89,8 +89,7 @@
             </div>
             <div class="card leave-balance">
                 <p>Leave</p><br>
-              <input type="text" placeholder="Search">
-            </nav>  <p>Balance</p><br>
+                 <p>Balance</p><br>
                 <h1>4 <i class="fa-regular fa-calendar"></i></h1><br>
                 <div class="col2">
                     <i class="fa-regular fa-calendar"></i> Casual<br>days
@@ -195,4 +194,5 @@
 
 </body>
 <script src="dasboard.js"></script>
+<script src="../darkemp.js"></script>
 </html>
